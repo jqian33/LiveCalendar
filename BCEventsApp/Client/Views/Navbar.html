@@ -1,0 +1,39 @@
+﻿<nav class="navbar navbar-default navbar-fixed-top navbar-custom" ng-controller="navigationController">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><span class="navbarText">BC Event</span></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a ng-click="timelineView()" ng-href="#/">
+                    <span class="navbarText">Timeline</span></a></li>
+                <li><a ng-click="userCalendarView()" ng-href="#/">
+                    <span class="navbarText">My Calendar</span></a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input global-search id="searchBar" type="text" class="typeahead form-control" placeholder="Search">
+                </div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a ng-href="#/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="navbarText">{{navbarFirstname}} </span><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a ng-controller="settingsController" ng-click="showSettings()" ng-href="#/">Settings</a></li>
+                        <li><a ng-controller="signOutController" ng-click="signOut()" ng-href="#/">Sign Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>

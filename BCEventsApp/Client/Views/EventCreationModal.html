@@ -1,0 +1,99 @@
+﻿
+<div event-creation-modal ng-controller="EventCreationController" id="eventCreationModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" ng-click="onClose()" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                <h4>New Event</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <div class="row">
+                                <div required-text-input ng-model="title" id="titleDisplay" class="col-sm-12 col-md-6">
+                                    <label for="title" class="control-label">Title:</label>
+                                    <input type="text" id="title" class="form-control" ng-model="title">
+                                </div>
+
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="location" class="control-label">Location:</label>
+                                    <input type="text" id="location" class="form-control" ng-model="location">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <label for="description" class="control-label">Description:</label>
+                            <textarea type="text" id="description" class="form-control" ng-model="description"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div id="startDateDisplay" class="col-sm-12 col-md-6" start-date-picker>
+                                    <label for="startDate" class="control-label">Start Date:</label>
+                                    <input type="text" id="startDate" class="form-control">
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="row">
+                                        <div id="startTimeDisplay" class="col-sm-6 col-md-6" start-time-picker>
+                                            <label for="startTime" class="control-label">Start Time:</label>
+                                            <input type="text" id="startTime" class="form-control">
+                                        </div>
+
+                                        <div id="endTimeDisplay" class="col-sm-6 col-md-6" end-time-picker>
+                                            <label for="endTime" class="control-label">End Time:</label>
+                                            <input type="text" id="endTime" class="form-control">
+                                            <p hidden id="nextDayMsg">This event will end on the next day.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">Choose a Calendar:</label>
+                            <div class="row">
+                                <div class="col-md-6">
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            <span>{{calendarSelectionTitle}}</span>&nbsp;<span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li ng-repeat="calendar in ownedCalendars">
+                                                <a ng-click="calendarSelect(calendar)" href="#">{{calendar.title}} </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="publicCheckbox" ng-show="showPublicCheckBox"  class="col-sm-12 co-md-12">
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="publish"> Make Public
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button confirm-button id="createButton" type="button" class="btn btn-success" ng-click="createEvent()">Create</button>
+            </div>
+        </div>
+    </div>
+</div>

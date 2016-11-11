@@ -1,0 +1,42 @@
+﻿
+<div ng-controller="userCalendarViewController" class="col-xs-6 col-sm-2 sidebar-offcanvas wordWrap" id="sidebar" role="navigation">
+    <ul class="nav">
+        <li>
+            <a add-calendar-button id="addCalendarButton" ng-href="#/">
+                <span class="glyphicon glyphicon-plus-sign addCalendarGreen"></span>
+                Add Calendar
+            </a>
+        </li>
+        <li>
+            <a>My Calendars</a>
+            <ul class="nav">
+                <li ng-repeat="calendar in ownedCalendars">
+
+                    <a side-bar-item ng-model="calendar" ng-click="toggleCalendar(calendar.id)" ng-href="#/">
+                        <span class="glyphicon glyphicon-check ownedColor" ng-if="calendar.id == primaryCalendarId"></span>
+                        <span class="glyphicon glyphicon-unchecked ownedColor" ng-if="calendar.id != primaryCalendarId"></span> {{calendar.title}}
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <ul class="nav">
+                <li ng-model="subscribedEvents">
+                    <a side-bar-item ng-model="subscribedEvents" ng-click="toggleCalendar(subscribedEvents.id)" ng-href="#/">
+                        <span class="glyphicon glyphicon-unchecked subscribedColor" ng-if="subscribedEvents != undefined"></span> {{subscribedEvents.title}}
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li ng-show="subscribedCalendars.length > 0">
+            <a>Subscribed Calendars</a>
+            <ul class="nav">
+                <li ng-repeat="calendar in subscribedCalendars">
+                    <a side-bar-item ng-model="calendar" ng-click="toggleCalendar(calendar.id)" ng-href="#/">
+                        <span class="glyphicon glyphicon-unchecked subscribedColor"></span> {{calendar.title}}
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,30 @@
+﻿
+<div calendar-details-modal ng-controller="calendarController" id="calendarDetailsModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" ng-click="onClose()" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                <h4 id="calendarTitle" class="modal-title wordWrap">{{calendarTitle}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <label for="calendarDescription" class="control-label">Description:</label>
+                        <p id="calendarDescription">{{calendarDescription}}</p>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <label for="eventCount" class="control-label">Number of events:</label>
+                        <p id="eventCount">{{eventCount}}</p>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <label for="calendarOwner" class="control-label">Owner:</label>
+                        <p id="calendarOwner">{{calendarOwner}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="exploreButton" ng-show="showExploreButton" type="button" class="btn btn-info" ng-click="explore()">Explore</button>
+            </div>
+        </div>
+    </div>
+</div>

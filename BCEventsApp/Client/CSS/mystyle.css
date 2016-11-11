@@ -1,0 +1,91 @@
+﻿.error {
+  border:2px solid red
+}
+
+.wordWrap {
+    word-wrap: break-word;
+}
+
+.fullCalendarSize {
+    width: 1500px;
+    margin: 0 auto;
+    font-size: 10px;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.trashIconRed {
+    color: #f65151
+}
+
+.primaryStarYellow {
+    color: #f6d951
+}
+
+.addCalendarGreen {
+    color: green;
+}
+
+.ownedColor {
+    color: #28bec5;
+}
+
+.subscribedColor {
+    color: #F7B733;
+}
+
+.timelineEntry {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.popover-content {
+    max-height: 200px;
+    overflow-y: auto;
+ }
+
+.bodyPadding {
+    padding-top: 70px;
+}
+
+.timelinePadding {
+    padding-top: 40px;
+}
+
+.navbar-custom {
+    background-color:#fd8c32;
+}
+
+.navbarText {
+    color: #ffffff;
+}
+
+.monday {
+    background-color: #8ba7aa !important;
+}
+
+.tuesday {
+    background-color: #f0f7f4 !important;
+}
+
+.wednesday {
+    background-color: #ffD3B5 !important;
+}
+
+.thursday {
+    background-color: #b3ddb8 !important;
+}
+
+.friday {
+    background-color: #fedf73 !important;
+}
+
+.saturday {
+    background-color: #fbab18 !important;
+}
+
+.sunday {
+    background-color: #6cc6ba !important;
+}

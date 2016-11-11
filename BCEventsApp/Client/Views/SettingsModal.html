@@ -1,0 +1,58 @@
+﻿
+<div settings-modal ng-controller="settingsController" id="settingsModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                <h4 class="modal-title">Settings</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <label class="control-label">Owned Calendars:</label>
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="calendar in ownedCalendars">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <a ng-if="calendar.id != primaryCalendarId" ng-href="#/">
+                                            <span class="glyphicon glyphicon-trash trashIconRed" ng-click="deleteCalendar(calendar.id)"></span>
+                                        </a>
+                                        <a id="starIcon" ng-if="calendar.id == primaryCalendarId" data-toggle="tooltip" title="This is your Primary Calendar">
+                                            <span class="glyphicon glyphicon-star primaryStarYellow"></span>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <p class="wordWrap">{{calendar.title}}</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="pull-right">
+                                            <input bootstrap-switch id="publicSwitch" class="pull-right" type="checkbox" ng-model="calendar.isPublic" ng-change="switched(calendar.id, calendar.isPublic)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-12" ng-show="subscribedCalendars.length > 0">
+                        <label class="control-label">Subscribed Calendars:</label>
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="calendar in subscribedCalendars">
+                                <div class="row">
+                                    <div class="col-sm-6 wordWrap">
+                                        <p class="wordWrap">{{calendar.title}}</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-warning pull-right" ng-click="unsubscribeCalendar(calendar.id)">Unsubscribe</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

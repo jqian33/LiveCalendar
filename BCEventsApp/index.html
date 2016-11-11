@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<link rel="stylesheet" href="Scripts/bower_components/fullcalendar/dist/fullcalendar.min.css"/>
+<link rel="stylesheet" type="text/css" href="Client/CSS/typehead.css" />
+<link rel="stylesheet" type="text/css" href="Client/CSS/timeline.css"/>
+<link rel="stylesheet" href="Scripts/bootstrap/css/bootstrap.css"/>
+<link rel="stylesheet" href="Scripts/bower_components/pikaday/css/pikaday.css"/>
+<link rel="stylesheet" href="Scripts/bower_components/jquery-timepicker/jquery.timepicker.css"/>
+<link rel="stylesheet" href="Scripts/bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css"/>
+<link rel="stylesheet" type="text/css" href="Client/CSS/mystyle.css">
+<link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+<!-- Open source dependencies-->
+<script src="Scripts/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="Scripts/bootstrap/js/bootstrap.js"></script>
+<script src="Scripts/bower_components/moment/min/moment.min.js"></script>
+<script src="Scripts/bower_components/moment-range/dist/moment-range.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0//angular-route.js"></script>
+<script src="Scripts/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="Scripts/bower_components/rrule/lib/nlp.js"></script>
+<script src="Scripts/bower_components/rrule/lib/rrule.js"></script>
+<script src="Scripts/bower_components/pikaday/pikaday.js"></script>
+<script src="Scripts/bower_components/jquery-timepicker/jquery.timepicker.js"></script>
+<script src="Scripts/bower_components/typeahead.js/dist/typeahead.bundle.js"></script>
+<script src="Scripts/bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+<script src="Scripts/signalR/jquery.signalR-2.2.0.js"></script>
+<!-- Application Dependencies -->
+<script src="signalr/hubs"></script>
+<script src="Client/app.js"></script>
+<script src="Client/run.js"></script>
+<script src="Client/Directives/FullCalendar.js"></script>
+<script src="Client/Directives/StartDatePicker.js"></script>
+<script src="Client/Directives/StarTimePicker.js"></script>
+<script src="Client/Directives/EndTimePicker.js"></script>
+<script src="Client/Directives/RequiredTextInput.js"></script>
+<script src="Client/Directives/ConfirmOnEnter.js"></script>
+<script src="Client/Directives/ConfirmButton.js"></script>
+<script src="Client/Directives/Password.js"></script>
+<script src="Client/Directives/EventDetailsModal.js"></script>
+<script src="Client/Directives/ExploreNotification.js"></script>
+<script src="Client/Directives/CalendarDetailsModal.js"></script>
+<script src="Client/Directives/EventCreationModal.js"></script>
+<script src="Client/Directives/LoginTab.js"></script>
+<script src="Client/Directives/SignupTab.js"></script>
+<script src="Client/Directives/AddCalendarButton.js"></script>
+<script src="Client/Directives/CalendarCreationModal.js"></script>
+<script src="Client/Directives/GlobalSearch.js"></script>
+<script src="Client/Directives/SettingsModal.js"></script>
+<script src="Client/Directives/BootsrapSwitch.js"></script>
+<script src="Client/Directives/SideBarItem.js"></script>
+<script src="Client/Directives/EventEditModal.js"></script>
+<script src="Client/Directives/LoginSignupModal.js"></script>
+<script src="Client/Directives/PasswordVerify.js"></script>
+<script src="Client/Directives/UserListPopover.js"></script>
+<script src="Client/Services/InitializationService.js"></script>
+<script src="Client/Services/BasicService.js"></script>
+<script src="Client/Services/SearchService.js"></script>
+<script src="Client/Services/UserCalendarsService.js"></script>
+<script src="Client/Services/SubscribedEventsService.js"></script>
+<script src="Client/Services/EventCreationService.js"></script>
+<script src="Client/Services/UserService.js"></script>
+<script src="Client/Services/EventService.js"></script>
+<script src="Client/Services/AuthenticationService.js"></script>
+<script src="Client/Services/HubService.js"></script>
+<script src="Client/Services/CalendarService.js"></script>
+<script src="Client/Services/ExploreCalendarsService.js"></script>
+<script src="Client/Services/CalendarCreationService.js"></script>
+<script src="Client/Services/EventEditService.js"></script>
+<script src="Client/Services/AccountService.js"></script>
+<script src="Client/Services/TimelineService.js"></script>
+<script src="Client/Services/DeinitializationService.js"></script>
+<script src="Client/Services/config.js"></script>
+<script src="Client/Services/Utilities.js"></script>
+<script src="Client/Controllers/UserCalendarView.js"></script>
+<script src="Client/Controllers/EventCreation.js"></script>
+<script src="Client/Controllers/Event.js"></script>
+<script src="Client/Controllers/Login.js"></script>
+<script src="Client/Controllers/SignOut.js"></script>
+<script src="Client/Controllers/Calendar.js"></script>
+<script src="Client/Controllers/Navigation.js"></script>
+<script src="Client/Controllers/ExploreNotification.js"></script>
+<script src="Client/Controllers/Settings.js"></script>
+<script src="Client/Controllers/CalendarCreation.js"></script>
+<script src="Client/Controllers/EventEdit.js"></script>
+<script src="Client/Controllers/Signup.js"></script>
+<script src="Client/Controllers/Timeline.js"></script>
+<script src="Client/Filters/datetime.js"></script>
+<script src="Client/Filters/dayOfWeek.js"></script>
+<script src="Client/Filters/time.js"></script>
+<script src="Client/Test.js"></script>
+
+<html ng-app="myApp">
+<head>
+    <title>BC Calendars (Alpha)</title>
+</head>
+<body>
+
+    <div ng-include="'Client/Views/Navbar.html'"></div>
+
+    <div class="row row-offcanvas row-offcanvas-left bodyPadding">
+
+        <!-- Sidebar -->
+        <div ng-include="'Client/Views/SideBar.html'"></div>
+        
+        <!-- User Calendar -->
+        <div class="col-xs-6 col-sm-10">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+
+                    <div ng-include="'Client/Views/ExploreNotification.html'"></div>
+
+                    <div ng-include="'Client/Views/UserCalendar.html'"></div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div ng-show="timelineView.display" class="col-xs-6 col-sm-10">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div ng-include="'Client/Views/Timeline.html'"></div>
+                </div>
+            </div>
+            <div class="timelinePadding"></div>
+        </div>
+    </div>
+
+    <!-- Event Details Modal -->
+    <div ng-include="'Client/Views/EventDetailsModal.html'"></div>
+
+    <!-- Event Creation Modal -->
+    <div ng-include="'Client/Views/EventCreationModal.html'"></div>
+
+    <!-- Login Modal-->
+    <div ng-include="'Client/Views/LoginSignupModal.html'"></div>
+
+    <!-- Calendar Details Modal -->
+    <div ng-include="'Client/Views/CalendarDetailsModal.html'"></div>
+
+    <!-- Settings Modal-->
+    <div ng-include="'Client/Views/SettingsModal.html'"></div>
+
+    <!-- Calendar Creation Modal-->
+    <div ng-include="'Client/Views/CalendarCreationModal.html'"></div>
+
+    <!-- Event Edit Modal-->
+    <div ng-include="'Client/Views/EventEditModal.html'"></div>
+
+</body>
+</html>

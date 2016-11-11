@@ -1,0 +1,56 @@
+﻿
+<div event-details-modal ng-controller="eventController" ng-init="init()" id="eventDetailsModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" ng-click="onClose()" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                <h4 id="eventTitle" class="modal-title wordWrap">{{eventTitle}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <label for="eventDescription" class="control-label">Description:</label>
+                        <p id="eventDescription">{{eventDescription}}</p>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <label for="eventLocation" class="control-label">Location:</label>
+                        <p id="eventLocation">{{eventLocation}}</p>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <label for="eventStartTime" class="control-label">Starts on:</label>
+                        <p id="eventStartTime">{{eventStartTime}}</p>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <label for="eventEndTime" class="control-label">Ends on:</label>
+                        <p id="eventEndTime">{{eventEndTime}}</p>
+                    </div>
+                    <div ng-if="calendarTitle != null" class="col-sm-12 col-md-12">
+                        <label for="calendarTitle" class="control-label">Belongs to:</label>
+                        <p id="calendarTitle">
+                            <a ng-click="showCalendar()" ng-href="#/">{{calendarTitle}}</a>
+                        </p>
+                    </div>
+                    <div ng-show="numberOfAttendees > 0" class="col-sm-12 col-md-12">
+                        <a user-list-popover data-toggle="popover" tabindex="0" data-trigger="focus">
+                            <strong class="cursor">{{numberOfAttendees}} person(s) are going to this event</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button ng-show="attendance === true && attendButtonsDisplay" id="withdrawButton" type="button" class="btn btn-secondary" ng-click="withdraw()">I'm not going</button>
+                <button ng-show="attendance === false && attendButtonsDisplay" id="attendButton" type="button" class="btn btn-info" ng-click="attend()">I'm going!</button>
+                <button ng-show="showSubscribeButton" id="subscribeButton" type="button" class="btn btn-success" ng-click="subscribeEvent()">Subscribe</button>
+                <button ng-show="showEditButton" id="editButton" type="button" class="btn btn-primary" ng-click="showEventEdit()">Edit</button>
+                <button ng-show="showDeleteButton" id="deleteEventButton" type="button" class="btn btn-danger" ng-click="deleteEvent()">Delete</button>
+                <button ng-show="showUnsubscribeButton" id="unsubscribeButton" type="button" class="btn btn-warning" ng-click="unsubscribeEvent()">Unsubscribe</button>
+            </div>
+        </div>
+    </div>
+    <div id="myPopover" style="display: none">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="user in attendees">
+                <p class="text-center">{{user.FirstName}} {{user.LastName}}</p></li>
+        </ul>
+    </div>
+</div>

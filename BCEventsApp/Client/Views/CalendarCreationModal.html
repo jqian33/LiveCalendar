@@ -1,0 +1,43 @@
+﻿
+<div calendar-creation-modal ng-controller="calendarCreationController" id="calendarCreationModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" ng-click="onClose()" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                <h4 class="modal-title">New Calendar</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <div required-text-input ng-model="title" id="calendarTitleDisplay">
+                                <label for="calendarTitle" class="control-label">Title:</label>
+                                <input type="text" id="calendarTitle" class="form-control" ng-model="title">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <div>
+                                <label for="calendarDescription" class="control-label">Description:</label>
+                                <textarea type="text" id="calendarDescription" class="form-control" ng-model="description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <div>
+                                <input bootstrap-switch id="publicSwitch" type="checkbox" ng-model="isPublic">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button confirm-button id="createCalendarButton" type="button" class="btn btn-success" ng-click="createCalendar()">Create</button>
+            </div>
+        </div>
+    </div>
+</div>
